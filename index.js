@@ -64,37 +64,7 @@ client.connect(err => {
             })
     })
 
-    // app.get('/bookings', (req, res) => {
-    //     // console.log(req.query.email);
-    //     const bearer = req.headers.authorization
-    //     // console.log(bearer);
-    //     if (bearer && bearer.startsWith('Bearer ')) {
-    //         const idToken = bearer.split(' ')[1];
-    //         // console.log({ idToken });
-    //         admin.auth().verifyIdToken(idToken)
-    //             .then((decodedToken) => {
-    //                 const tokenEmail = decodedToken.email;
-    //                 const queryEmail = req.query.email;
-    //                 console.log(tokenEmail, queryEmail);
-    //                 if (tokenEmail == queryEmail) {
-    //                     bookings.find({ email: queryEmail })
-    //                         // bookings.find({})
-    //                         .toArray((err, documents) => {
-    //                             res.status(200).send(documents);
-    //                         })
-    //                 }
-    //                 else {
-    //                     res.status(401).send('un authorized access')
-    //                 }
-    //             })
-    //             .catch((error) => {
-    //                 res.status(401).send('un authorized access')
-    //             });
-    //     }
-    //     else {
-    //         res.status(401).send('un authorized access')
-    //     }
-    // })
+    
 
     app.get('/bookings', (req, res) => {
         bookings.find({ email: req.query.email })
@@ -129,7 +99,7 @@ client.connect(err => {
     })
 
 });
-// "start:dev": "nodemon index",
+
 
 app.get('/', (req, res) => {
     res.send('This is Server!')
